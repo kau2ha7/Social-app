@@ -1,0 +1,23 @@
+{% extends "users/base.html" %}
+{% block body %}
+<h1 class="text-2xl m-10 justify-center">Create a Post</h1>
+<div class="container py-5">
+  <form action="" method="POST" class="bg-white shadow-md m-10 w-4/5 rounded px-8 pt-6 pb-8 mb-4">
+    {% csrf_token %}
+    <div>
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="">Title</label>
+        <div class="text-gray-700 shadow appearance-none border rounded py-2 px-3 m-10">{{form.title}}</div>
+    </div>
+    <div>
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="">Upload Image</label>
+        <div class="text-gray-700 shadow appearance-none border rounded py-2 px-3 m-10">{{form.image}}</div>
+    </div>
+    <div>
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="">Add Caption</label>
+        <div class="text-gray-700 shadow appearance-none border rounded py-2 px-3 m-10">{{form.caption}}</div>
+    </div>
+    <button class="text-white bg-green-500 px-5 py-2" type="submit">Post</button>
+   </form>
+
+</div>
+{% endblock body %}

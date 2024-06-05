@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MySocial</title>
+     <script src="https://cdn.tailwindcss.com"></script>
+     <link rel="stylesheet" href="{% static 'users/css/style.css' %}">
+     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="shadow-lg">
+        <div class="px-4 mx-auto">
+            <div class="flex justify-between">
+             {% comment %} website logo {% endcomment %}
+             <div>
+                 <a class="flex" href="">
+                 <img class="h-8 w-8 mr-2" src="{% static 'users/images/contact.png' %}" alt="">
+                   <span class="font-bold text-lg text-gray-500">MySocial</span>
+                 </a>
+             </div>
+              {% comment %} website items {% endcomment %}
+              <div class="space-x-1">
+                 {% if request.user.is_authenticated %}
+                      <form action="{% url 'logout' %}" method="POST">
+                         {% csrf_token %}
+                         <button type="submit">Logout</button>
+                       </form>
+                    {% else %}
+                     <a  class="py-4 px-2 text-gray-500 font-bold" href="{% url 'login' %}">Login</a>
+                    {% endif %}
+
+                 <a  class="py-4 px-2 text-gray-500 font-bold" href=""></a>
+                 
+              </div>
+          </div>
+        </div>
+    </nav>
+    {% block body %}
+    
+    {% endblock body %}
+</body>
+</html>
